@@ -1,0 +1,21 @@
+.catalog {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  gap: 48px;
+
+  &__card {
+    display: grid;
+    width: 200px;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    align-items: center;
+  }
+
+  @each $Query, $column in $media-Queries {
+    @media (min-width: $Query) {
+      grid-template-columns: repeat(#{$column}, $cellWidth);
+    }
+  }
+}
